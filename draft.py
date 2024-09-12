@@ -1,11 +1,47 @@
 import pandas as pd
 import sqlite3
 
+create_table(database='mydatabase',
+             table_name='produto',
+             columns_desc="""
+             id_produto INTEGER PRIMARY KEY,
+             nome CHAR NOT NULL,
+             qtd INTEGER NOT NULL""")
+
+conn= sqlite3.connect('mydatabase.db')
+cursor = conn.cursor()
+
+cursor.execute("""
+    INSERT INTO produto (nome, qtd)
+    VALUES ("PS5", 30)  
+               """ )
+
+
+def insert_one_row(database)
+
+    query = f"""
+        INSERT
+        VALUES ({values})
+    """
+
+
+
 from functions.create_db import create_db
 from functions.drop_table import drop_table
 from functions.create_table import create_table
+from functions.insert_rows import insert_one_row
 
-drop_table(database= 'mydatabase',table_name='cliente')
+insert_one_row(
+    database_name='mydatabase.db',
+    table_name='produto',
+    columns_name='nome, qtd',
+    values= "'PS4', 45"
+)
+
+#INSERT TO
+#cursor.executemany
+
+drop_table(database= 'mydatabase',table_name='produto')
 create_db('mydatabase')
 
 
@@ -35,7 +71,7 @@ drop_table(
 )
 
 cursor.execute("""
-    DROP TABLE cliente
+    DROP TABLE produto
                """)
 
 
